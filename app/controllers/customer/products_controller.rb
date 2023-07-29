@@ -5,6 +5,8 @@ class Customer::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    # 商品をカートに追加できるように、空の CartItem モデルを定義
+    @cart_item = CartItem.new
   end
 
   private
