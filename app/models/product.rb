@@ -12,4 +12,5 @@ class Product < ApplicationRecord
   # 価格を昇順にproductを取得
   scope :price_low_to_high, -> { order(price: :asc) }
   has_many :cart_items, dependent: :destroy
+  has_many :order_details, dependent: :destroy
 end
