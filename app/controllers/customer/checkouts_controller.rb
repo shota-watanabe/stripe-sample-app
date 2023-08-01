@@ -39,8 +39,8 @@ class Customer::CheckoutsController < ApplicationController
           }
         }
       ],
-      # 支払いが成功した後に、リダイレクトされるURL
-      success_url: root_url,
+      # 支払いが成功した後に、リダイレクトされるURL（注文成功画面）
+      success_url: "#{root_url}orders/success",
       # 決済をキャンセルした後に、リダイレクトされるURL
       cancel_url: "#{root_url}cart_items"
     )

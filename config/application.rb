@@ -41,5 +41,7 @@ module Hello
       g.skip_routes true
       g.test_framework false
     end
+    # タイムゾーンを日本時間に変更
+    config.time_zone = 'Tokyo'
   end
 end
