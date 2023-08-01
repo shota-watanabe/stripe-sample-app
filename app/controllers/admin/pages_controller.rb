@@ -13,8 +13,8 @@ class Admin::PagesController < ApplicationController
 
   def get_orders(params)
     if !params[:status].present? || !Order.statuses.keys.to_a.include?(params[:status])
-      return [Order.latest,
-              'all']
+      # 「customer」と単数形なのは、customers テーブルが orders テーブルから見て親だから
+      return [Order.eager_load(:customer).latest, 'all']
     end
 
     get_by_enum_value(params[:status])
