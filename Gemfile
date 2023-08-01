@@ -79,3 +79,4 @@ end
 
 gem "devise"
 gem "stripe"
+gem 'pry-rails'
