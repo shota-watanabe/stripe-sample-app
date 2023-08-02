@@ -34,4 +34,9 @@ class Customer < ApplicationRecord
       }
     end
   end
+
+  def active_for_authentication?
+    # status == 'normal' が true だった場合のみ、true を返す
+    super && (status == 'normal')
+  end
 end
