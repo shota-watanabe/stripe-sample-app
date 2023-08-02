@@ -44,6 +44,9 @@ class Customer::WebhooksController < ApplicationController
       end
       # トランザクション処理終了
       customer.cart_items.destroy_all # 顧客のカート内商品を全て削除
+      # Action Mailer の deliver_later を使うことで、メールを 非同期 で送信できる
+      # deliver_later を使えば Active Job としてメール送信のジョブが enque されて、サーバの処理に余裕があるときに自動で捌いてくれる
+      OrderMailer.complete(email: session.customer_details.email).deliver_later
       redirect_to session.success_url
     end
   end
