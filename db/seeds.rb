@@ -6,7 +6,8 @@ Customer.create!(name: "Hoshino Yui", email: "hoshino.yui@gmail.com", password: 
 Customer.create!(name: "Saito Kazuma", email: "saito.kazuma@gmail.com", password: "111111")
 
 p '==================== admin create ===================='
-Admin.create!(email: "admin@gmail.com", password: "1234qwer")
+Admin.create!(email: "admin@gmail.com", password: "1234qwer", identification_status: 0)
+Admin.create!(email: "admin1@gmail.com", password: "1234qwer", identification_status: 1)
 
 p '==================== product create ===================='
 product1 = Product.new(
